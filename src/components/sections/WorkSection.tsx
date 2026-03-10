@@ -17,9 +17,12 @@ export function WorkSection() {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-16">
                 {projects.map((project, index) => (
-                    <RevealWrapper key={project.slug} delay={0.2 + (index * 0.1)}>
-                        <Link href={`/work/${project.slug}`} className="block h-full cursor-pointer group bg-[#0A0A0A] border border-white/5 rounded-2xl overflow-hidden flex flex-col hover:border-white/10 transition-colors duration-500">
-
+                    <Link
+                        key={project.slug}
+                        href={`/work/${project.slug}`}
+                        className="block h-full cursor-pointer group bg-[#0A0A0A] border border-white/5 rounded-2xl overflow-hidden flex flex-col hover:border-white/10 transition-colors duration-500 relative z-10"
+                    >
+                        <RevealWrapper delay={0.2 + (index * 0.1)} className="h-full flex flex-col">
                             <div className="p-4 flex flex-col flex-grow">
                                 {project.tags && project.tags.length > 0 && (
                                     <div className="flex gap-2 mb-10">
@@ -52,8 +55,8 @@ export function WorkSection() {
                                     </div>
                                 )}
                             </div>
-                        </Link>
-                    </RevealWrapper>
+                        </RevealWrapper>
+                    </Link>
                 ))}
             </div>
         </section>
